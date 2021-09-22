@@ -1,0 +1,22 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/interactive-block",
+	"version": "0.1.0",
+	"title": "Interactive Block",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"headingSize": {
+			"type": "number",
+			"default": "1"
+		}
+	},
+	"textdomain": "interactive-block",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
