@@ -32,7 +32,7 @@ function enqueue_frontend_script() {
 	$script_asset_path = 'build/frontend.asset.php';
 	$script_asset      = require( $script_asset_path );
 	$script_url = plugins_url( $script_path, __FILE__ );
-	wp_enqueue_script( 'script', $script_url, ['wp-element'], $script_asset['version'] );
+	wp_enqueue_script( 'script', $script_url, $script_asset['dependencies'], $script_asset['version'] );
 }
 
 // Copied from WooCommerce Blocks.
