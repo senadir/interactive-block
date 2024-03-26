@@ -1,5 +1,13 @@
-import { render, Suspense } from '@wordpress/element';
+import { createRoot, render, Suspense } from '@wordpress/element';
 import Block from './block';
+
+const RenderBlock = (attributes) => {
+	return (
+		<Suspense fallback={ <div className="wp-block-placeholder" /> }>
+			<Block { ...attributes } />
+		</Suspense>
+	)
+};
 
 window.addEventListener( 'DOMContentLoaded', () => {
 	const element = document.querySelector(
@@ -7,11 +15,10 @@ window.addEventListener( 'DOMContentLoaded', () => {
 	);
 	if ( element ) {
 		const attributes = { ...element.dataset };
-		render(
-			<Suspense fallback={ <div className="wp-block-placeholder" /> }>
-				<Block { ...attributes } />
-			</Suspense>,
-			element
-		);
+		if ( createRoot ) {
+			createRoot( element ).render( <RenderBlock {...attributes} /> );
+		} else {
+			render( <RenderBlock {...attributes} />, element );
+		}
 	}
 } );
