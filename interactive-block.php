@@ -22,7 +22,7 @@
  */
 function create_block_interactive_block_block_init() {
 	register_block_type( __DIR__, array(
-		'render_callback' => 'render_block_with_attribures'
+		'render_callback' => 'render_block_with_attributes'
 	) );
 }
 
@@ -52,7 +52,7 @@ function add_attributes_to_block( $attributes = [], $content = '' ) {
 	return preg_replace( '/^<div /', '<div ' . implode( ' ', $escaped_data_attributes ) . ' ', trim( $content ) );
 }
 
-function render_block_with_attribures( $attributes = [], $content = '' ) {
+function render_block_with_attributes( $attributes = [], $content = '' ) {
 	if ( ! is_admin() ) {
 		enqueue_frontend_script();
 	}
